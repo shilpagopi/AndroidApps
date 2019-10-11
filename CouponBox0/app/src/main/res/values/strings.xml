@@ -4,5 +4,6 @@
     <string name="tab_text_2">Travel</string>
     <string name="tab_text_3">Shopping</string>
     <string name="tab_text_4">Health</string>
-    <string name="tab_text_5">Other</string>
+    <string name="tab_text_5">Event</string>
+    <string name="tab_text_6">Other</string>
 </resources>

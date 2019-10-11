@@ -75,6 +75,7 @@ public class PlaceholderFragment extends Fragment {
                 case 2: adapter = new CouponAdapter(smshashmap.get("travel"), getActivity()); break;
                 case 3: adapter = new CouponAdapter(smshashmap.get("shopping"), getActivity()); break;
                 case 4: adapter = new CouponAdapter(smshashmap.get("health"), getActivity()); break;
+                case 5: adapter = new CouponAdapter(smshashmap.get("event"), getActivity()); break;
                 default: adapter = new CouponAdapter(smshashmap.get("other"), getActivity()); break;
             }
             //ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, fetchInbox());
@@ -96,6 +97,8 @@ public class PlaceholderFragment extends Fragment {
         smshashmap.put("other",sms4);
         List<Coupon> sms5 = new ArrayList<Coupon>();
         smshashmap.put("travel",sms5);
+        List<Coupon> sms6 = new ArrayList<Coupon>();
+        smshashmap.put("event",sms6);
 
         return smshashmap;
     }
@@ -108,7 +111,7 @@ public class PlaceholderFragment extends Fragment {
 
         cursor.moveToFirst();
         int smscount = 0;
-        while  (cursor.moveToNext() && smscount<50)
+        while  (cursor.moveToNext() && smscount<200)
         {
             smscount+=1;
             String address = cursor.getString(1);

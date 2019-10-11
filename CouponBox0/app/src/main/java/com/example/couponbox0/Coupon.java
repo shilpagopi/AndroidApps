@@ -26,11 +26,11 @@ public class Coupon{
     }
 
     public void setCouponcode() {
-        Pattern pattern = Pattern.compile("(Use|use|apply|Apply|apply promo|Apply Promo|with code)( )?(code|Code)?(:)?( )?(([a-zA-Z]+|[0-9]+)([a-zA-Z]+)?([0-9]+)?([a-zA-Z]+)?([0-9]+)?)");
+        Pattern pattern = Pattern.compile("(((Apply|apply|use|Use) (coupon|Coupon|Promo|promo))|with code|Use|use|apply|Apply)( )?(code|Code)?(:)?( )?(([a-zA-Z]+|[0-9]+)([a-zA-Z]+)?([0-9]+)?([a-zA-Z]+)?([0-9]+)?)");
         Matcher matcher = pattern.matcher(content);
         if(matcher.find())
-            couponcode = matcher.group(0).replaceAll("(Use|use|apply|Apply|apply promo|Apply Promo|with code)( )?(code|Code)?(:)?( )?","") ;
-        if(couponcode==couponcode.toLowerCase())
+            couponcode = matcher.group(0).replaceAll("(((Apply|apply|use|Use) (coupon|Coupon|Promo|promo))|with code|Use|use|apply|Apply)( )?(code|Code)?(:)?( )?","") ;
+        if(couponcode==couponcode.toLowerCase()||couponcode.equalsIgnoreCase("pin"))
             couponcode = "";
     }
 
@@ -42,8 +42,12 @@ public class Coupon{
         if(isValidCoupon()) {
             if(sender.contains("MDLIFE")||sender.contains("MEDLAB")||sender.contains("MEDLFE"))
                 return "health";
-            if(sender.contains("HAPYGO")||sender.contains("TRAVEL"))
+            if(sender.contains("HAPYGO")||sender.contains("TRAVEL")||sender.contains("EASEMY")||sender.contains("UBER")||sender.contains("YULU"))
                 return "travel";
+            if(sender.contains("PANTLS"))
+                return "shopping";
+            if(sender.contains("FRMSKN"))
+                return "event";
             return "coupon";
         }
         return "other";
