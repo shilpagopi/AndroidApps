@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CouponBox</string>
+    <string name="tab_text_1">Coupons</string>
+    <string name="tab_text_2">Travel</string>
+    <string name="tab_text_3">Shopping</string>
+    <string name="tab_text_4">Health</string>
+    <string name="tab_text_5">Other</string>
+</resources>
